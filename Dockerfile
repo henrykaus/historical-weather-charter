@@ -1,5 +1,3 @@
-# Adapted from lab 6
-
 FROM python:3.9-slim
 
 # Maintainer
