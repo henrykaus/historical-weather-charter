@@ -2,7 +2,7 @@ import datetime
 from google.cloud import datastore
 from .model import model
 
-CLIENT = 'project-kaus-hkaus'   # GCP Project
+CLIENT = ''   # GCP Project goes here
 
 def from_datastore(entity) -> list:
     """
