@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Solway:wght@400;500;600;700;800;900&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #d1d0d8;
+  background-color: #2a2b38;
+  margin: 2em 1em 0 1em;
+}
+
+.main {
+  max-width: 1158px;
+  margin: 0 auto;
+}
+
+.form-graph {
+  display: grid;
+  grid-template-columns: 25fr minmax(0, 75fr);
+  grid-template-rows: 25fr minmax(0, 75fr);
+  gap: 1.5em;
+  justify-items: center;
+  grid-template-areas:
+    'headline   graph'
+    'form       graph';
+}
+
+.headline {
+  font-family: 'Solway', serif;
+  font-weight: 600;
+  font-size: 60px;
+  letter-spacing: 0.5px;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-bottom: -5px;
+  text-shadow: 7px 7px 5px rgba(21, 21, 21, 0.8);
+
+  grid-area: headline;
+}
+
+.subtitle {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0.2em 0 0 0;
+  text-align: center;
+}
+
+.form {
+  text-align: center;
+  grid-row-start: 2;
+  grid-area: form;
+}
+
+/* For the Select Element */
+.default-item {
+  color: #88888d;
+}
+
+/* Rules for text and button inputs. */
+
+.input {
+  margin-bottom: 7px;
+  margin-top: 7px;
+  padding: 13px 17px 13px 17px;
+  border-radius: 4px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 0.5px;
+  color: #d1d0d8;
+  background-color: #1f2029;
+  border: none;
+  transition: all 175ms linear;
+  box-shadow: 10px 10px 15px 0 rgba(21, 21, 21, 0.8);
+  width: 100%;
+  height: 55px;
+}
+.input:focus,
+.input:active {
+  background-color: #343544;
+  border: none;
+  outline: none;
+  box-shadow: 17px 17px 15px 0 rgba(21, 21, 21, 0.8);
+}
+
+.button-input {
+  padding: 13px 22px 13px 22px;
+  height: 80px;
+  width: 200px;
+  margin-bottom: 5px;
+  margin-top: 15px;
+  border-radius: 40px;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: 'Poppins', serif;
+  line-height: 22px;
+  letter-spacing: 2px;
+  color: #eb9595;
+  background-color: #292a35;
+  border: none;
+  transition: all 125ms linear;
+  box-shadow: 10px 10px 15px 0 rgba(21, 21, 21, 0.8);
+}
+.button-input:hover {
+  background-color: #343544;
+  color: #adefef;
+  box-shadow: 17px 17px 15px 0 rgba(21, 21, 21, 0.8);
+}
+.button-input:focus,
+.button-input:active {
+  background-color: #1f2029;
+  color: #adefef;
+  box-shadow: 17px 17px 15px 0 rgba(21, 21, 21, 0.8);
+}
+
+.graph-container {
+  /* Required for chart js responsiveness */
+  position: relative;
+  width: 100%;
+
+  grid-area: graph;
+}
+
+.graph {
+  border: none;
+  background-color: #1f2029;
+  box-shadow: 10px 10px 15px 0 rgba(21, 21, 21, 0.8);
+  border-radius: 16px;
+  padding: 10px 10px 10px 10px;
+}
+
+.widget-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.5em;
+  margin-top: 1.5em;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+  text-align: center;
+}
+
+.widget-number {
+  margin: 0;
+  font-size: 60px;
+  font-weight: 700;
+  text-align: center;
+  border: none;
+  background-color: #1f2029;
+  box-shadow: 10px 10px 15px 0 rgba(21, 21, 21, 0.8);
+  border-radius: 16px;
+  padding: 0.75em 0;
+}
+
+.footer {
+  font-weight: 400;
+  font-size: 14px;
+  margin-top: 1em;
+}
+
+@media (min-width: 500px) and (max-width: 992px) {
+  .widget-container {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  .widget:last-of-type {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .form-graph {
+    grid-template-areas:
+      'headline'
+      'form'
+      'graph';
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: 1fr;
+  }
+
+  .form {
+    width: 100%;
+  }
+
+  .input {
+    display: block;
+    max-width: 25em;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 500px) {
+  .graph-container {
+    min-height: 300px;
+  }
+
+  .widget-container {
+    grid-template-columns: 1fr;
+  }
+}

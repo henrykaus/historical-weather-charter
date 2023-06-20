@@ -15,7 +15,7 @@ class Weather(MethodView):
         """
         Accepts GET requests, and loads the empty weather page.
         """
-        return render_template('weather.html', maxtemp='-', mintemp='-', address='None', month='Month')
+        return render_template('weather.html', max_temp='-', min_temp='-', address='None', month='Month')
 
 
     def post(self):

@@ -1,20 +1,22 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather History</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="{{ url_for('static', filename='img/favicon.png') }}"
+    />
+    <link rel=stylesheet type=text/css href="{{ url_for('static',
+    filename='css/styles.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+  </head>
 
-    <head>
-        <title>Weather History</title>
-        <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/favicon.png') }}"/>
-        <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/page.css') }}">
-        <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/elements.css') }}">
-        <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/text.css') }}">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-    </head>
-
-    <!-- Main Weather Content -->
-    <body>
-        <div class="main">
-            {% block content %}{% endblock %}
-        </div> 
-    </body>
-
+  <!-- Main Weather Content -->
+  <body>
+    {% block content %}{% endblock %}</main>
+  </body>
 </html>
