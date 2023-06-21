@@ -12,12 +12,16 @@
       <input
         aria-label="Location"
         type="text"
-        class="input"
+        class="input input--text"
         name="location"
         value="{{location}}"
-        placeholder="Enter location"
+        placeholder="Enter location..."
       />
-      <select aria-label="Select preset" class="input" name="preset">
+      <select
+        aria-label="Select preset"
+        class="input input--select"
+        name="preset"
+      >
         <option class="default-item" value="none">Or select preset</option>
         <option value="Portland, OR">Portland, OR</option>
         <option value="Tigard, OR">Tigard, OR</option>
@@ -147,10 +151,16 @@
     </section>
   </div>
 
+  <p class="location">
+    <span class="location__text">Specific located used:</span> {{address}}
+  </p>
+
   <!-- Disclaimer and More Info about the current request -->
   <footer class="footer">
-    *Note: the information is only recent to 5 days ago from use. Specific
-    location used: {{address}}
+    <p>
+      Disclaimer: the generated information above is only accurate to 5 days ago
+      from use.
+    </p>
   </footer>
 </main>
 {% endblock %}

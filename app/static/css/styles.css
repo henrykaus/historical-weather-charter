@@ -5,10 +5,20 @@
 }
 
 body {
+  --site-background: #2a2b38;
+  --main: #1f2029;
+  --red: #eb9595;
+  --blue: #adefef;
+  --white: #d1d0d8;
+  --lightgray: #b1afbc;
+  --gray: #88888d;
+  --hover: #343544;
+  --shadow: rgba(21, 21, 21, 0.8);
+
   font-family: 'Poppins', sans-serif;
-  color: #d1d0d8;
-  background-color: #2a2b38;
-  margin: 2em 1em 0 1em;
+  color: var(--white);
+  background-color: var(--site-background);
+  margin: 1.5em 1em 0 1em;
 }
 
 .main {
@@ -30,18 +40,18 @@ body {
 .headline {
   font-family: 'Solway', serif;
   font-weight: 600;
-  font-size: 60px;
+  font-size: 3.75em;
   letter-spacing: 0.5px;
   margin-block-start: 0;
   margin-block-end: 0;
   margin-bottom: -5px;
-  text-shadow: 7px 7px 5px rgba(21, 21, 21, 0.8);
+  text-shadow: 7px 7px 5px #151515;
 
   grid-area: headline;
 }
 
 .subtitle {
-  font-size: 18px;
+  font-size: 1.12em;
   font-weight: 500;
   margin: 0.2em 0 0 0;
   text-align: center;
@@ -55,65 +65,75 @@ body {
 
 /* For the Select Element */
 .default-item {
-  color: #88888d;
+  color: var(--gray);
 }
 
 /* Rules for text and button inputs. */
 
 .input {
-  margin-bottom: 7px;
-  margin-top: 7px;
-  padding: 13px 17px 13px 17px;
+  appearance: textfield;
+  -webkit-appearance: none;
+  margin: 7px 0;
+  padding: 13px 17px 13px 0;
+  text-indent: 17px;
   border-radius: 4px;
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 1em;
   line-height: 22px;
   letter-spacing: 0.5px;
-  color: #d1d0d8;
-  background-color: #1f2029;
+  color: var(--white);
+  background-color: var(--main);
   border: none;
   transition: all 175ms linear;
-  box-shadow: 10px 10px 15px 0 rgba(21, 21, 21, 0.8);
+  box-shadow: 10px 10px 15px 0 var(--shadow);
   width: 100%;
   height: 55px;
 }
 .input:focus,
 .input:active {
-  background-color: #343544;
+  background-color: var(--hover);
   border: none;
   outline: none;
-  box-shadow: 17px 17px 15px 0 rgba(21, 21, 21, 0.8);
+  box-shadow: 17px 17px 15px 0 var(--shadow);
+}
+.input:focus::placeholder,
+.input:active::placeholder {
+  color: var(--white);
+}
+
+select.input {
+  cursor: pointer;
 }
 
 .button-input {
-  padding: 13px 22px 13px 22px;
+  padding: 13px 22px;
   height: 80px;
   width: 200px;
-  margin-bottom: 5px;
-  margin-top: 15px;
+  margin: 15px auto 5px auto;
   border-radius: 40px;
-  font-size: 20px;
+  font-size: 1.25em;
   font-weight: 700;
   font-family: 'Poppins', serif;
   line-height: 22px;
   letter-spacing: 2px;
-  color: #eb9595;
-  background-color: #292a35;
+  color: var(--red);
+  background-color: var(--site-background);
   border: none;
   transition: all 125ms linear;
-  box-shadow: 10px 10px 15px 0 rgba(21, 21, 21, 0.8);
+  box-shadow: 10px 10px 15px 0 var(--shadow);
 }
 .button-input:hover {
-  background-color: #343544;
-  color: #adefef;
-  box-shadow: 17px 17px 15px 0 rgba(21, 21, 21, 0.8);
+  background-color: var(--hover);
+  color: var(--blue);
+  box-shadow: 17px 17px 15px 0 var(--shadow);
+  cursor: pointer;
 }
 .button-input:focus,
 .button-input:active {
-  background-color: #1f2029;
-  color: #adefef;
-  box-shadow: 17px 17px 15px 0 rgba(21, 21, 21, 0.8);
+  background-color: var(--main);
+  color: var(--blue);
+  box-shadow: 17px 17px 15px 0 var(--shadow);
 }
 
 .graph-container {
@@ -126,8 +146,8 @@ body {
 
 .graph {
   border: none;
-  background-color: #1f2029;
-  box-shadow: 10px 10px 15px 0 rgba(21, 21, 21, 0.8);
+  background-color: var(--main);
+  box-shadow: 10px 10px 15px 0 var(--shadow);
   border-radius: 16px;
   padding: 10px 10px 10px 10px;
 }
@@ -140,31 +160,46 @@ body {
 }
 
 .title {
-  font-size: 20px;
+  font-size: 1.4em;
   font-weight: 700;
-  margin: 0;
+  margin: 0 0 0.2em 0;
   text-align: center;
 }
 
 .widget-number {
   margin: 0;
-  font-size: 60px;
+  font-size: 3.9em;
   font-weight: 700;
   text-align: center;
-  border: none;
-  background-color: #1f2029;
-  box-shadow: 10px 10px 15px 0 rgba(21, 21, 21, 0.8);
+  background-color: var(--main);
+  box-shadow: 10px 10px 15px 0 var(--shadow);
   border-radius: 16px;
-  padding: 0.75em 0;
+  padding: 0.5em 0;
+}
+
+.location {
+  background-color: var(--hover);
+  border-radius: 7px;
+  box-shadow: 10px 10px 15px var(--shadow);
+  margin-top: 2.5em;
+  padding: 0.4em 0.75em;
+  font-size: 0.8em;
+}
+
+.location__text {
+  font-weight: 700;
 }
 
 .footer {
+  color: var(--lightgray);
+  text-align: center;
   font-weight: 400;
-  font-size: 14px;
-  margin-top: 1em;
+  font-size: 0.75em;
+  margin: 3em 0 1em 0;
+  font-style: italic;
 }
 
-@media (min-width: 500px) and (max-width: 992px) {
+@media (max-width: 992px) {
   .widget-container {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
@@ -175,7 +210,7 @@ body {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .form-graph {
     grid-template-areas:
       'headline'
@@ -195,14 +230,92 @@ body {
     margin-left: auto;
     margin-right: auto;
   }
+
+  .graph-container {
+    height: 500px;
+  }
+}
+
+@media (max-width: 760px) {
+  .graph-container {
+    height: 400px;
+  }
+}
+
+@media (max-width: 640px) {
+  .widget-container {
+    gap: 1em;
+  }
+
+  .graph-container {
+    height: 325px;
+  }
+
+  .title {
+    font-size: 1em;
+  }
+
+  .widget-number {
+    font-size: 3em;
+  }
 }
 
 @media (max-width: 500px) {
-  .graph-container {
-    min-height: 300px;
+  .form {
+    position: sticky;
+    top: 1em;
+    z-index: 1;
   }
 
-  .widget-container {
-    grid-template-columns: 1fr;
+  .form-graph {
+    grid-template-areas:
+      'headline'
+      'form'
+      'graph';
+  }
+
+  .input {
+    background-color: var(--hover);
+    margin: 0 0.5em;
+    max-width: 100%;
+    width: calc(100% - 1em);
+  }
+
+  .input::placeholder {
+    color: var(--white);
+  }
+
+  .input--select {
+    display: none;
+  }
+
+  .button-input {
+    display: none;
+  }
+
+  .graph-container {
+    height: 250px;
+  }
+
+  .title {
+    font-size: 0.8em;
+  }
+
+  .widget-number {
+    font-size: 2.5em;
+  }
+}
+
+@media (max-width: 400px) {
+  .graph-container {
+    height: 225px;
+  }
+
+  .title {
+    font-size: 0.7em;
+  }
+
+  .widget-number {
+    font-size: 2em;
   }
 }
