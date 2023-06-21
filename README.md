@@ -28,3 +28,18 @@ $ pip install -r app/requirements.txt
 $ ./env/Scripts/activate
 $ python app/app.py
 ```
+
+## Instructions to Deploy on Cloud Run:
+
+1. Clone repo in Cloud Shell
+2. Ensure that the `model_backend` in `gbmodel/__init__` is set to `datastore`
+3. Ensure that the `CLIENT` in `gbmodel/model_datastore.py` is set to the project name (same as `${GOOGLE_CLOUD_PROJECT}`)
+4. Create docker container from `historical-weather-charter/`
+5. Deploy to Cloud Run
+
+```
+$ git clone https://github.com/henrykaus/historical-weather-charter
+$ // Make changes for steps 2 and 3
+$ gcloud builds submit --timeout=900 --tag gcr.io/${GOOGLE_CLOUD_PROJECT}/gcp-weather
+$ gcloud run deploy gcp-weather --image gcr.io/${GOOGLE_CLOUD_PROJECT}/gcp-weather --service-account [IAM ACCOUNT NAME]@${GOOGLE_CLOUD_PROJECT}.iam.gserviceaccount.com
+```
