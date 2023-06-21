@@ -21,12 +21,12 @@ body {
   margin: 1.5em 1em 0 1em;
 }
 
-.main {
+.site-content {
   max-width: 1158px;
   margin: 0 auto;
 }
 
-.form-graph {
+.primary-content {
   display: grid;
   grid-template-columns: 25fr minmax(0, 75fr);
   grid-template-rows: 25fr minmax(0, 75fr);
@@ -106,7 +106,7 @@ select.input {
   cursor: pointer;
 }
 
-.button-input {
+.button {
   padding: 13px 22px;
   height: 80px;
   width: 200px;
@@ -123,14 +123,14 @@ select.input {
   transition: all 125ms linear;
   box-shadow: 10px 10px 15px 0 var(--shadow);
 }
-.button-input:hover {
+.button:hover {
   background-color: var(--hover);
   color: var(--blue);
   box-shadow: 17px 17px 15px 0 var(--shadow);
   cursor: pointer;
 }
-.button-input:focus,
-.button-input:active {
+.button:focus,
+.button:active {
   background-color: var(--main);
   color: var(--blue);
   box-shadow: 17px 17px 15px 0 var(--shadow);
@@ -159,14 +159,14 @@ select.input {
   margin-top: 1.5em;
 }
 
-.title {
+.widget__title {
   font-size: 1.4em;
   font-weight: 700;
   margin: 0 0 0.2em 0;
   text-align: center;
 }
 
-.widget-number {
+.widget__number {
   margin: 0;
   font-size: 3.9em;
   font-weight: 700;
@@ -211,7 +211,7 @@ select.input {
 }
 
 @media (max-width: 900px) {
-  .form-graph {
+  .primary-content {
     grid-template-areas:
       'headline'
       'form'
@@ -251,11 +251,11 @@ select.input {
     height: 325px;
   }
 
-  .title {
+  .widget__title {
     font-size: 1em;
   }
 
-  .widget-number {
+  .widget__number {
     font-size: 3em;
   }
 }
@@ -267,7 +267,7 @@ select.input {
     z-index: 1;
   }
 
-  .form-graph {
+  .primary-content {
     grid-template-areas:
       'headline'
       'form'
@@ -289,7 +289,7 @@ select.input {
     display: none;
   }
 
-  .button-input {
+  .button {
     display: none;
   }
 
@@ -297,11 +297,11 @@ select.input {
     height: 250px;
   }
 
-  .title {
+  .widget__title {
     font-size: 0.8em;
   }
 
-  .widget-number {
+  .widget__number {
     font-size: 2.5em;
   }
 }
@@ -311,11 +311,11 @@ select.input {
     height: 225px;
   }
 
-  .title {
+  .widget__title {
     font-size: 0.7em;
   }
 
-  .widget-number {
+  .widget__number {
     font-size: 2em;
   }
 }

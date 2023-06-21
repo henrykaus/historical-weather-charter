@@ -1,13 +1,15 @@
 <!-- The main weather page to house the statistical data and form. -->
 {% extends "layout.html" %} {% block content %}
-<main class="main">
-  <!-- Top Row of Page -->
-  <div class="form-graph">
-    <!-- Input Form -->
+<main class="site-content">
+  <!-- Form and Graph Area -->
+  <div class="primary-content">
+    <!-- Header -->
     <header class="site-header">
       <h1 class="headline">Weather</h1>
       <p class="subtitle">Historical Weather Charter</p>
     </header>
+
+    <!-- Input Form -->
     <form class="form" action="{{ url_for('weather') }}" method="post">
       <input
         aria-label="Location"
@@ -29,11 +31,7 @@
         <option value="Tilikum Crossing Bridge">Tilikum Crossing Bridge</option>
         <option value="Hershey, Pennsylvania">Hershey, Pennsylvania</option>
       </select>
-      <input
-        type="submit"
-        class="button-input normal-btn-input"
-        value="Get Temps"
-      />
+      <input type="submit" class="button" value="Get Temps" />
     </form>
 
     <!-- Graph Display -->
@@ -123,39 +121,40 @@
 
       // Create the graph
       var graph = new Chart(ctx, {
-          type: 'line',
-          data: data,
-          options: options
+        type: 'line',
+        data: data,
+        options: options
       });
     </script>
   </div>
 
-  <!-- Bottom Row of Page -->
+  <!-- Widget Area -->
   <div class="widget-container">
     <!-- Monthly Minimum Widget -->
     <section class="widget" id="month-min-widget">
-      <h2 class="title">{{month}}'s Min Temp</h2>
-      <p class="widget-number">{{min_temp}}</p>
+      <h2 class="widget__title">{{month}}'s Min Temp</h2>
+      <p class="widget__number">{{min_temp}}</p>
     </section>
 
     <!-- Monthly Maximum Widget -->
     <section class="widget" id="month-max-widget">
-      <h2 class="title">{{month}}'s Max Temp</h2>
-      <p class="widget-number">{{max_temp}}</p>
+      <h2 class="widget__title">{{month}}'s Max Temp</h2>
+      <p class="widget__number">{{max_temp}}</p>
     </section>
 
     <!-- Percent Difference from Last Year Widget -->
     <section class="widget" id="percent-widget">
-      <h2 class="title">% Difference from Last Year</h2>
-      <p class="widget-number">{{percent}}%</p>
+      <h2 class="widget__title">% Difference from Last Year</h2>
+      <p class="widget__number">{{percent}}%</p>
     </section>
   </div>
 
+  <!-- Specific Location Information -->
   <p class="location">
     <span class="location__text">Specific located used:</span> {{address}}
   </p>
 
-  <!-- Disclaimer and More Info about the current request -->
+  <!-- Disclaimer About Accuracy -->
   <footer class="footer">
     <p>
       Disclaimer: the generated information above is only accurate to 5 days ago
