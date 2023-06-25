@@ -21,7 +21,7 @@ function renderGraph(graph_labels, graph_maxes, graph_mins) {
     pointBackgroundColor: '#ffffff',
     pointBorderWidth: 1,
     pointHoverRadius: 7,
-    pointHoverBorderColor: 'rgba(220,220,220,1)',
+    pointHoverBorderColor: '#ffffff',
     pointHoverBorderWidth: 2,
     pointRadius: 2,
     pointHitRadius: 12,
