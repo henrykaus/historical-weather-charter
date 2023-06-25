@@ -38,93 +38,8 @@
     <div class="graph-container">
       <canvas class="graph" id="weather-graph"></canvas>
     </div>
-    <script>
-      Chart.defaults.global.responsive = false;
-
-      // Graph canvas from HTML
-      var ctx = document.getElementById("weather-graph").getContext("2d");
-
-      // Data and labels for Graph
-      const data = {
-        labels: [{% for item in graph_labels %},
-                  "{{item}}"
-                 {% endfor %}],
-        datasets: [{
-            label: "Max Temp",
-            data: [{% for item in graph_maxes %},
-                    {{item}}
-                  {% endfor %}],
-            fill: false,
-            lineTension: 0.1,
-            backgroundColor: "rgba(255,73,46,0.4)",
-            borderColor: "rgba(255,73,46,1)",
-            borderCapStyle: 'round',
-            borderJoinStyle: 'miter',
-            pointBorderColor: "rgba(255,192,192,1)",
-            pointBackgroundColor: "#ffffff",
-            pointBorderWidth: 1,
-            pointHoverRadius: 5,
-            pointHoverBackgroundColor: "rgba(255,73,46,1)",
-            pointHoverBorderColor: "rgba(220,220,220,1)",
-            pointHoverBorderWidth: 2,
-            pointRadius: 1,
-            pointHitRadius: 12
-          },{
-            label: "Min Temp",
-            data: [{% for item in graph_mins %},
-                    {{item}}
-                   {% endfor %}],
-            fill: false,
-            lineTension: 0.1,
-            backgroundColor: "rgba(75,192,192,0.4)",
-            borderColor: "rgba(75,192,192,1)",
-            borderCapStyle: 'round',
-            borderJoinStyle: 'miter',
-            pointBorderColor: "rgba(75,192,192,1)",
-            pointBackgroundColor: "#ffffff",
-            pointBorderWidth: 1,
-            pointHoverRadius: 5,
-            pointHoverBackgroundColor: "rgba(75,192,192,1)",
-            pointHoverBorderColor: "rgba(220,220,220,1)",
-            pointHoverBorderWidth: 2,
-            pointRadius: 2,
-            pointHitRadius: 12
-        }]
-      };
-
-      // Options to customize labels
-      const options = {
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-          xAxes: [{
-            display: true,
-            ticks: {
-              autoSkip: false,
-              callback: function(label) {
-                var month = label.slice(5);
-                switch (month) {
-                  case "01":
-                    return label.slice(0,4);
-                  default:
-                    return "";
-                }
-              },
-              color: 'blue',
-            },
-            gridLines: {
-              display: false
-            }
-          }]
-        },
-      }
-
-      // Create the graph
-      var graph = new Chart(ctx, {
-        type: 'line',
-        data: data,
-        options: options
-      });
+    <script defer type="text/javascript">
+      renderGraph({{graph_labels|tojson}}, {{graph_maxes|tojson}}, {{graph_mins|tojson}});
     </script>
   </div>
 
@@ -151,14 +66,18 @@
 
   <!-- Specific Location Information -->
   <p class="location">
-    <span class="location__text">Specific located used:</span> {{address}}
+    <span class="location__text">Specific location used:</span> {{address}}
   </p>
 
   <!-- Disclaimer About Accuracy -->
   <footer class="footer">
-    <p>
+    <p class="disclaimer">
       Disclaimer: the generated information above is only accurate to 5 days ago
       from use.
+    </p>
+    <p>
+      &copy; 2023
+      <a class="link" href="https://github.com/henrykaus">Henry Kaus</a>
     </p>
   </footer>
 </main>
