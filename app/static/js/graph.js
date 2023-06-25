@@ -1,12 +1,16 @@
+// Color constants
+const colors = {
+  RED: '#ff4a2e',
+  RED_LIGHT: 'rgba(255,73,46,0.4)',
+  BLUE: '#4bc0c0',
+  BLUE_LIGHT: 'rgba(75,192,192,0.4)',
+  WHITE: '#ffffff',
+  LIGHT_GRAY: '#b1afbc',
+};
+
 // Chart defaults
 Chart.defaults.font.family = "'Roboto Mono', monospace";
-Chart.defaults.color = '#b1afbc';
-
-// Color constants
-const RED = 'rgba(255,73,46,1)';
-const RED_LIGHT = 'rgba(255,73,46,0.4)';
-const BLUE = 'rgba(75,192,192,1)';
-const BLUE_LIGHT = 'rgba(75,192,192,0.4)';
+Chart.defaults.color = colors.LIGHT_GRAY;
 
 function renderGraph(graph_labels, graph_maxes, graph_mins) {
   // Graph canvas from HTML
@@ -15,13 +19,12 @@ function renderGraph(graph_labels, graph_maxes, graph_mins) {
   // Default options for datasets
   const dataDefaults = {
     fill: false,
-    lineTension: 0.1,
+    tension: 0.1,
     borderCapStyle: 'round',
-    borderJoinStyle: 'miter',
-    pointBackgroundColor: '#ffffff',
+    pointBackgroundColor: colors.WHITE,
     pointBorderWidth: 1,
     pointHoverRadius: 7,
-    pointHoverBorderColor: '#ffffff',
+    pointHoverBorderColor: colors.WHITE,
     pointHoverBorderWidth: 2,
     pointRadius: 2,
     pointHitRadius: 12,
@@ -34,19 +37,19 @@ function renderGraph(graph_labels, graph_maxes, graph_mins) {
       {
         label: 'Max Temp (°F)',
         data: graph_maxes,
-        backgroundColor: RED_LIGHT,
-        borderColor: RED,
-        pointBorderColor: RED,
-        pointHoverBackgroundColor: RED,
+        backgroundColor: colors.RED_LIGHT,
+        borderColor: colors.RED,
+        pointBorderColor: colors.RED,
+        pointHoverBackgroundColor: colors.RED,
         ...dataDefaults,
       },
       {
         label: 'Min Temp (°F)',
         data: graph_mins,
-        backgroundColor: BLUE_LIGHT,
-        borderColor: BLUE,
-        pointBorderColor: BLUE,
-        pointHoverBackgroundColor: BLUE,
+        backgroundColor: colors.BLUE_LIGHT,
+        borderColor: colors.BLUE,
+        pointBorderColor: colors.BLUE,
+        pointHoverBackgroundColor: colors.BLUE,
         ...dataDefaults,
       },
     ],
@@ -57,13 +60,12 @@ function renderGraph(graph_labels, graph_maxes, graph_mins) {
     maintainAspectRatio: false,
     scales: {
       x: {
-        display: true,
         ticks: {
           autoSkip: false,
           callback: function (index) {
-            let fullLabel = this.getLabelForValue(index);
-            let month = fullLabel.slice(5);
-            return month === '01' ? fullLabel.slice(0, 4) : '';
+            let label = this.getLabelForValue(index);
+            let month = label.slice(5);
+            return month === '01' ? label.slice(0, 4) : '';
           },
         },
         grid: {
@@ -75,7 +77,9 @@ function renderGraph(graph_labels, graph_maxes, graph_mins) {
       tooltip: {
         callbacks: {
           labelColor: function (context) {
-            let color = context.dataset.label.includes('Max') ? RED : BLUE;
+            let color = context.dataset.label.startsWith('Max')
+              ? colors.RED
+              : colors.BLUE;
 
             return {
               backgroundColor: color,
