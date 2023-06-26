@@ -19,7 +19,7 @@ body {
   background-color: var(--site-background);
   color: var(--white);
   font-family: 'Poppins', sans-serif;
-  margin: 1.5em 1em 0 1em;
+  margin: 1.5em 1em;
 }
 
 input,
@@ -91,7 +91,7 @@ select {
   font-size: 1em;
   font-weight: 500;
   letter-spacing: 0.02em;
-  margin: 0.7em 0;
+  margin: 0 0 0.7em 0;
   padding: 0.8em 1em;
   transition: all 175ms linear;
   width: 100%;
@@ -105,9 +105,6 @@ select {
 .input:focus::placeholder,
 .input:active::placeholder {
   color: var(--white);
-}
-.input.input--text {
-  appearance: textfield;
 }
 
 .button {
@@ -194,7 +191,7 @@ select {
   color: var(--lightgray);
   font-size: 0.75em;
   font-weight: 400;
-  margin: 3em 0 1em 0;
+  margin-top: 3em;
   text-align: center;
 }
 
@@ -293,6 +290,10 @@ select {
   .graph-container {
     height: 250px;
     margin-top: 0.5em;
+  }
+
+  .widget-container {
+    margin-top: 1em;
   }
 
   .widget__title {
