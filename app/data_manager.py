@@ -10,7 +10,7 @@ class DataManager():
         Manages interactions between DB and APIs -- Nominatim and Open-Meteo 
         Historical Weather.
         """
-        self.geolocator = Nominatim(user_agent="User")
+        self.geolocator = Nominatim(user_agent="historical-weather-charter")
         self.model = gbmodel.get_model()
 
 

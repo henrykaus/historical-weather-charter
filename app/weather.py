@@ -27,9 +27,13 @@ class Weather(MethodView):
         select_input = request.form['preset']
         location = select_input if select_input != 'none' else text_input
 
-        db_items = self.data_manager.update_location_in_db(location)
+        try:
+            db_items = self.data_manager.update_location_in_db(location)
+        except Exception as e:
+            return render_template('weather.html', max_temp='err', min_temp='err', percent='err', location=location, address=f'ERROR: {e}', month='Month', graph_maxes=[], graph_mins=[], graph_labels=[])
+
         if db_items == []:
-            return self.get()
+            return render_template('weather.html', max_temp='-', min_temp='-', location=location, address='Invalid Location', month='Month', graph_maxes=[], graph_mins=[], graph_labels=[])
 
         widget_data = self.data_manager.get_widget_data(db_items)
         graph_items = self.data_manager.get_graph_data(db_items)
