@@ -14,18 +14,18 @@ $ cd historical-weather-app
 $ python -m venv env
 ```
 
-3. Install packages
+3. Activate virtual environment and install packages
 
 ```
+$ ./env/Scripts/activate
 $ pip install --upgrade pip
 $ pip install -r app/requirements.txt
 ```
 
 4. Ensure that the `model_backend` in `gbmodel/__init__` is set to `sqlite3`
-5. Activate virtual environment and run app
+5. Run app
 
 ```
-$ ./env/Scripts/activate
 $ python app/app.py
 ```
 
