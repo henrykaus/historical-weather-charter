@@ -11,13 +11,14 @@ A historical weather charter web app that displays ~25 years of highs and mins o
 
 ```bash
 $ cd historical-weather-app
-$ python -m venv env
+$ python3 -m venv env
 ```
 
 3. Activate virtual environment and install packages
 
 ```bash
-$ ./env/Scripts/activate
+$ ./env/Scripts/activate  # For PowerShell
+$ source env/bin/actiate  # For ZSH
 $ pip install --upgrade pip
 $ pip install -r app/requirements.txt
 ```
@@ -26,7 +27,7 @@ $ pip install -r app/requirements.txt
 5. Run app
 
 ```bash
-$ python app/app.py
+$ python3 app/app.py
 ```
 
 ## Instructions to Deploy on Cloud Run:
