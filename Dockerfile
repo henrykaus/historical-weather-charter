@@ -1,7 +1,7 @@
 FROM python:3.9-slim
 
 # Maintainer
-LABEL org.opencontainers.image.authors="hkaus@pdx.edu"
+LABEL org.opencontainers.image.authors="Henry Kaus https://github.com/henrykaus"
 
 # Copy and set directory
 COPY app /app

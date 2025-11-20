@@ -18,7 +18,7 @@ $ python3 -m venv env
 
 ```bash
 $ ./env/Scripts/activate  # For PowerShell
-$ source env/bin/actiate  # For ZSH
+$ source env/bin/activate  # For ZSH
 $ pip install --upgrade pip
 $ pip install -r app/requirements.txt
 ```
@@ -33,9 +33,9 @@ $ python3 app/app.py
 ## Instructions to Deploy on Cloud Run:
 
 1. Clone repo in Cloud Shell
-2. Ensure that the `model_backend` in `gbmodel/__init__` is set to `datastore`
+2. Ensure that the `model_backend` in `gbmodel/__init__.py` is set to `datastore`
 3. Ensure that the `CLIENT` in `gbmodel/model_datastore.py` is set to the project name (same as `${GOOGLE_CLOUD_PROJECT}`)
-4. Create docker container from `historical-weather-charter/`
+4. Create docker container from `historical-weather-charter/` directory
 5. Create a service account called "weather" with the `Cloud Datastore User` role
 6. Create Google Datastore database in "Datastore Mode" that resides in the US West1 region
 7. Create a "weather" entity kind in datastore with a "\[default\]" namespace and "Numeric ID (auto-generated)" Key identifier. It should have the following properties:
